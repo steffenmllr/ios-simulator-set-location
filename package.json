@@ -1,0 +1,9 @@
+{
+  "name": "ios-simulator-set-location",
+  "version": "1.0.0",
+  "description": "Sets the geolocation of the ios simulator",
+  "main": "index.js",
+  "repository": "git@github.com:steffenmllr/ios-simulator-set-location.git",
+  "author": "Steffen Müller",
+  "license": "MIT"
+}
