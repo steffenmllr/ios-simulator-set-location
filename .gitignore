@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .build
-./simulator-set-location
+simulator-set-location
 
 # Runtime data
 pids
