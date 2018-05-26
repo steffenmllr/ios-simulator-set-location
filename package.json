@@ -10,7 +10,7 @@
         "ios-set-location": "./cli.js"
     },
     "scripts": {
-        "build": "rm -fr .build && rm simulator-set-location && swift build --configuration=release -Xswiftc -static-stdlib && mv .build/release/simulator-set-location ./simulator-set-location"
+        "build": "rm -fr .build && rm -rf simulator-set-location && swift build --configuration=release -Xswiftc -static-stdlib && mv .build/release/simulator-set-location ./simulator-set-location"
     },
     "dependencies": {
         "electron-util": "^0.8.2",

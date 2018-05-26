@@ -31,9 +31,9 @@ if (!lat || !lng) {
     cli.showHelp();
 }
 
-setLocation(lat, lat, cli.flags.name).then((devices) => {
+setLocation(lat, lng, cli.flags.name).then((devices) => {
     devices.forEach(device => {
-        console.log(`Updated location to ${lat} ${lat} for ${device}`);
+        console.log(`Updated location to ${lat} ${lng} for ${device}`);
     });
 }).catch(err => {
     console.log(err.message)
