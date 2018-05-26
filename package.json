@@ -1,9 +1,24 @@
 {
-  "name": "ios-simulator-set-location",
-  "version": "1.0.0",
-  "description": "Sets the geolocation of the ios simulator",
-  "main": "index.js",
-  "repository": "git@github.com:steffenmllr/ios-simulator-set-location.git",
-  "author": "Steffen Müller",
-  "license": "MIT"
+    "name": "ios-simulator-set-location",
+    "version": "1.0.0",
+    "description": "Sets the geolocation of the ios simulator",
+    "main": "index.js",
+    "repository": "git@github.com:steffenmllr/ios-simulator-set-location.git",
+    "author": "Steffen Müller",
+    "license": "MIT",
+    "bin": {
+        "ios-set-location": "./cli.js"
+    },
+    "scripts": {
+        "build": "rm -fr .build && rm simulator-set-location && swift build --configuration=release -Xswiftc -static-stdlib && mv .build/release/simulator-set-location ./simulator-set-location"
+    },
+    "dependencies": {
+        "electron-util": "^0.8.2",
+        "execa": "^0.10.0",
+        "lodash": "^4.17.10",
+        "meow": "^5.0.0"
+    },
+    "devDependencies": {
+        "prettier": "^1.12.1"
+    }
 }
