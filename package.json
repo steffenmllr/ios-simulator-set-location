@@ -6,11 +6,20 @@
     "repository": "git@github.com:steffenmllr/ios-simulator-set-location.git",
     "author": "Steffen Müller",
     "license": "MIT",
+    "engines": {
+        "node": ">=8"
+    },
     "bin": {
         "ios-set-location": "./cli.js"
     },
+    "files": [
+        "index.js",
+        "cli.js",
+        "simulator-set-location"
+    ],
     "scripts": {
-        "build": "rm -fr .build && rm -rf simulator-set-location && swift build --configuration=release -Xswiftc -static-stdlib && mv .build/release/simulator-set-location ./simulator-set-location"
+        "build": "rm -fr .build && rm -rf simulator-set-location && swift build --configuration=release -Xswiftc -static-stdlib && mv .build/release/simulator-set-location ./simulator-set-location",
+        "prepublish": "npm run build"
     },
     "dependencies": {
         "electron-util": "^0.8.2",
