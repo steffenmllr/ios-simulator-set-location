@@ -1,18 +1,6 @@
 import CoreLocation
 import Foundation
 
-private let kNotificationName = "com.apple.iphonesimulator.simulateLocation"
-
-func postNotification(for coordinate: CLLocationCoordinate2D, to simulators: [String]) {
-    let userInfo: [AnyHashable: Any] = [
-        "simulateLocationLatitude": coordinate.latitude,
-        "simulateLocationLongitude": coordinate.longitude,
-        "simulateLocationDevices": simulators,
-    ]
-    let notification = Notification(name: Notification.Name(rawValue: kNotificationName), object: nil, userInfo: userInfo)
-    DistributedNotificationCenter.default().post(notification)
-}
-
 // This should be better validated, since I'm only calling it from node it should be fine
 let arguments = CommandLine.arguments
 if 3 < arguments.count {
@@ -23,7 +11,15 @@ if 3 < arguments.count {
     let deviceIds = deviceIdString.components(separatedBy: ",")
     let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 
-    postNotification(for: location, to:deviceIds)
+    let userInfo: [AnyHashable: Any] = [
+        "simulateLocationLatitude": location.latitude,
+        "simulateLocationLongitude": location.longitude,
+        "simulateLocationDevices": deviceIds,
+    ]
+
+    let notification = Notification(name: Notification.Name(rawValue: "com.apple.iphonesimulator.simulateLocation"), object: nil, userInfo: userInfo)
+    DistributedNotificationCenter.default().post(notification)
+
     print("OK")
 
 } else {
